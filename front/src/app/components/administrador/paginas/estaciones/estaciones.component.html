@@ -1,0 +1,101 @@
+<app-menu-lateral></app-menu-lateral>
+<app-admin-navbar></app-admin-navbar>
+
+<div class="container-tabla">
+
+  <h2 class="mb-4 text-primary text-center">Estaciones</h2>
+
+  <!-- Filtro -->
+  <div class="card p-3 mb-4">
+    <div class="card-header bg-light fw-semibold">Filtrar por Estación y Fecha</div>
+    <div class="card-body d-flex flex-wrap gap-3 justify-content-between">
+
+      <!-- Estación -->
+      <div class="search-container flex-grow-1">
+        <i class="material-icons">pin_drop</i>
+        <select class="form-control" [(ngModel)]="estaId">
+          <option [ngValue]="null">-- Todas las estaciones --</option>
+          <option *ngFor="let estacion of estaciones" [ngValue]="estacion.esta_id">
+            {{ estacion.nombre_estacion }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Fecha inicio -->
+      <div class="search-container flex-grow-1">
+        <i class="material-icons">event</i>
+        <input type="date" class="form-control" [(ngModel)]="fechaInicio" placeholder="Fecha inicio" />
+      </div>
+
+      <!-- Fecha fin -->
+      <div class="search-container flex-grow-1">
+        <i class="material-icons">event</i>
+        <input type="date" class="form-control" [(ngModel)]="fechaFin" placeholder="Fecha fin" />
+      </div>
+
+      <!-- Botón Buscar -->
+      <div class="d-flex align-items-end">
+        <button class="btn btn-primary" (click)="buscarDatos()">Buscar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensajes de error o sin datos -->
+  <div *ngIf="errorMessage || (!loading && datos.length === 0 && (fechaInicio || fechaFin))"
+       class="alert alert-warning d-flex align-items-center gap-3">
+    <i class="material-icons">info</i>
+    <div>
+      <strong>{{ errorMessage ? 'Atención' : 'Sin datos disponibles' }}</strong><br />
+      {{ errorMessage ? errorMessage : 'No hay datos para mostrar en el rango seleccionado.' }}
+    </div>
+  </div>
+
+  <!-- Cargando -->
+  <div *ngIf="loading" class="text-center text-secondary mb-3">
+    Cargando datos...
+  </div>
+
+  <!-- Resultados -->
+  <div *ngIf="datos.length > 0" class="card">
+    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+      <span>Datos del Datalogger - Estación ID {{ estaId || 'Todos' }}</span>
+      <button class="btn btn-light btn-sm" (click)="irARegistroYDescargar()">
+        <i class="material-icons">file_download</i> Descargar CSV
+      </button>
+    </div>
+
+    <div class="card-body p-0">
+      <div class="scroll-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID Sensor</th>
+              <th>Nombre Sensor</th>
+              <th>Modelo</th>
+              <th>Estado</th>
+              <th>Marca</th>
+              <th>ID Variable</th>
+              <th>Nombre Variable</th>
+              <th>Valor</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of datos">
+              <td>{{ d.sens_id }}</td>
+              <td>{{ d.sens_nombre }}</td>
+              <td>{{ d.sens_modelo }}</td>
+              <td>{{ d.sens_estado }}</td>
+              <td>{{ d.marca }}</td>
+              <td>{{ d.varidata_id }}</td>
+              <td>{{ d.varidata_nombre }}</td>
+              <td>{{ d.valor_dataloger }}</td>
+              <td>{{ d.fecha_dataloger | date: 'short' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,67 @@
+<aside class="menu-lateral glass">
+  <div class="menu-lateral-content">
+    <div class="logo">🌤️ <span>MeteoDash</span></div>
+    <nav>
+      <ul>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+  <a routerLink="/dashboard">
+    <span class="material-symbols-rounded">dashboard</span> Panel Principal
+  </a>
+</li>
+
+<li routerLinkActive="active">
+  <a routerLink="/estaciones">
+    <span class="material-symbols-rounded">location_on</span> Estaciones
+  </a>
+</li>
+
+<li routerLinkActive="active">
+  <a routerLink="/analisis">
+    <span class="material-symbols-rounded">query_stats</span> Análisis
+  </a>
+</li>
+
+<li routerLinkActive="active">
+  <a routerLink="/historial">
+    <span class="material-symbols-rounded">calendar_month</span> Historial
+  </a>
+</li>
+
+<li routerLinkActive="active">
+  <a routerLink="/alertas">
+    <span class="material-symbols-rounded">notifications</span> Alertas
+  </a>
+</li>
+
+<li routerLinkActive="active">
+  <a routerLink="/configuracion">
+    <span class="material-symbols-rounded">settings</span> Configuración
+  </a>
+</li>
+
+<li routerLinkActive="active">
+  <a routerLink="/ayuda">
+    <span class="material-symbols-rounded">help</span> Ayuda
+  </a>
+</li>
+
+<li routerLinkActive="active">
+  <a routerLink="/acerca">
+    <span class="material-symbols-rounded">info</span> Acerca de
+  </a>
+</li>
+
+      </ul>
+    </nav>
+  </div>
+ <div class="user">
+  <i class="bx bxs-user-circle" style="font-size: 40px; margin-right: 12px;"></i>
+  <div class="user-info">
+    <strong>{{ usuario }}</strong>
+    <span>{{ rol }}</span>
+  </div>
+
+  <span class="material-symbols-rounded toggle" (click)="goToInicio()">swap_horiz</span>
+</div>
+
+</aside>

@@ -1,0 +1,230 @@
+/* Estilos generales */
+.container{
+  margin: 5% auto;
+  top: 5%;
+}
+
+.container-tabla {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  max-width: 95%;
+  margin: 5% auto;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  top: 5%;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-bar label {
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f4f6f9;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.search-container i {
+  color: #888;
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1rem;
+  width: 220px;
+  color: #333;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Tabla scrollable */
+.scroll-wrapper {
+  max-height: 65vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Estilo de la tabla */
+.data-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e1e1e1;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.data-table th {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+  background-color: #f1f6fb;
+}
+
+/* Sticky columnas */
+.data-table th:first-child,
+.data-table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #34495e;
+  color: white;
+  z-index: 2;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+  position: sticky;
+  right: 0;
+  background-color: #34495e;
+  color: white;
+  z-index: 2;
+}
+
+/* Inputs en modo edición */
+.edit-input,
+.data-table input.form-control {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Acciones */
+.actions-cell {
+  white-space: nowrap;
+  display: flex;
+  gap: 5px;
+}
+
+/* Botones dentro de la tabla */
+.data-table .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+
+
+
+/*----------MODAL------------*/
+/* MODAL GENERAL */
+.modal-content {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+.modal-header {
+  background-color: #f5f7fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.modal-body {
+  background-color: #fff;
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  background-color: #f5f7fa;
+  border-top: 1px solid #dee2e6;
+  padding: 1rem 1.5rem;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* FORMULARIO */
+.modal-body .form-label {
+  font-weight: 500;
+  color: #444;
+}
+
+.modal-body input.form-control,
+.modal-body select.form-select {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease;
+  box-shadow: none;
+}
+
+.modal-body input.form-control:focus,
+.modal-body select.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* BOTONES */
+.modal-footer .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.modal-footer .btn-secondary {
+  border-radius: 6px;
+  font-weight: 500;
+}

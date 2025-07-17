@@ -1,0 +1,81 @@
+<header class="navbar glass">
+  <div class="navbar-left"></div>
+  
+<!-- 
+   <div class="navbar-center">
+      <input type="text" class="search-input" placeholder="Buscar..." id="searchInput">
+      <div id="search-options" class="search-options hidden">
+          <div class="option">
+          <span class="material-symbols-rounded">place</span>
+          <span>Buscar por ciudad</span>
+          </div>
+          <div class="option">
+          <span class="material-symbols-rounded">calendar_today</span>
+          <span>Buscar por fecha</span>
+          </div>
+          <div class="option">
+          <span class="material-symbols-rounded">thermostat</span>
+          <span>Buscar por temperatura</span>
+          </div>
+      </div>
+    </div>
+     -->
+
+   
+
+
+  <div class="navbar-right">
+    <!-- <span class="icon-wrapper" data-tooltip="Historial">
+        <span class="material-symbols-rounded">history</span>
+    </span> -->
+
+   <span id="notif-btn" class="icon-wrapper" data-tooltip="Notificaciones" (click)="toggleNotificaciones()">
+  <span class="material-symbols-rounded">notifications</span>
+</span>
+
+<span id="perfil-btn" class="icon-wrapper" data-tooltip="Perfil" (click)="togglePerfil()">
+  <span class="material-symbols-rounded">account_circle</span>
+</span>
+
+<div id="perfil-menu" class="perfil-menu" [class.hidden]="perfilOculto">
+  <ul>
+    <li><a routerLink="/perfil"><span class="material-symbols-rounded">person</span>Mi perfil</a></li>
+    <li><a href=""><span class="material-symbols-rounded">settings</span>Configuración</a></li>
+    <li><a (click)="logout()"><span class="material-symbols-rounded">logout</span>Salir</a></li>
+  </ul>
+</div>
+
+<div id="notificaciones-menu" class="notificaciones-menu" [class.hidden]="notificacionesOcultas">
+  <div class="notificaciones-header">
+    <h4>Notificaciones <span class="dot"></span></h4>
+  </div>
+  <div class="notificaciones-list">
+    <div class="notificacion nueva">
+      <div class="icono"><span class="material-symbols-rounded">info</span></div>
+      <div class="contenido">
+        <p><strong>Nuevo informe disponible</strong></p>
+        <span class="fecha">24 Mayo 2025, 14:35</span>
+      </div>
+    </div>
+    <div class="notificacion">
+      <div class="icono"><span class="material-symbols-rounded">cloud_download</span></div>
+      <div class="contenido">
+        <p><strong>Datos climáticos actualizados</strong></p>
+        <span class="fecha">24 Mayo 2025, 10:12</span>
+      </div>
+    </div>
+  </div>
+  <div class="ver-todas">
+    <a href="#">Ver todas</a>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+
+</header>

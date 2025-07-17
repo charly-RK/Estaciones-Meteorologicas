@@ -1,0 +1,76 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="left-panel">
+      <div class="logo">
+        <h1>Proyecto Investigación</h1>
+      </div>
+      <h2>Iniciar Sesión</h2>
+      <p>¿No tienes una cuenta? <a routerLink="/register">Crea una ahora</a></p>
+
+      <form (ngSubmit)="login()">
+        <div class="input-container">
+          <label for="correo">Correo:</label>
+          <div class="email-input">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input 
+              type="email" 
+              id="correo" 
+              placeholder="Ingresa tu correo" 
+              [(ngModel)]="correo" 
+              name="correo" 
+              required 
+            >
+          </div>
+        </div>
+
+        <div class="input-container">
+          <label for="password">Contraseña:</label>
+          <div class="password-input">
+            <input 
+              [type]="Mostrarcontrasena ? 'text' : 'password'" 
+              id="password" 
+              placeholder="Contraseña" 
+              [(ngModel)]="contrasena"
+              name="password" 
+              required 
+              autocomplete="off"
+            >
+            <ion-icon 
+              [name]="Mostrarcontrasena ? 'eye-outline' : 'eye-off-outline'" 
+              class="toggle-password" 
+              (click)="togglePasswordVisibility()">
+            </ion-icon>
+          </div>
+        </div>
+
+        <div class="options">
+          <!-- <label>
+            <input type="checkbox" > Recordarme
+          </label> -->
+          <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="sign-in-btn">Iniciar Sesión</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="right-panel">
+      <div class="support">
+        <!-- <span>Soporte</span> -->
+      </div>
+      <div class="promo-content">
+        <div class="image-container">
+          <img src="../../../assets/img/fondo_in.png" alt="PROYEC">
+        </div>
+      </div>
+      <div class="footer">
+        <h3>Estaciones Meteorológicas: Monitoreo del Clima en Acción</h3>
+        <p>En esta página encontrarás información sobre las estaciones meteorológicas, dispositivos clave para el monitoreo de variables climáticas.</p>
+
+      </div>
+    </div>
+  </div>
+</div>

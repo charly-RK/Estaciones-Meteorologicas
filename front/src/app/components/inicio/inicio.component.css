@@ -1,0 +1,411 @@
+
+.container h2 {
+  font-weight: bold;
+  color: #064e3b;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background: linear-gradient(90deg, #064e3b, #1b7f56);
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  border-radius: 12px 12px 0 0;
+  color: #fff
+}
+
+
+.info-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #444;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.info-section i {
+  font-size: 1.8rem;
+  color: #064e3b;
+}
+
+#map {
+  position: relative;
+  z-index: 1; 
+  border-radius: 12px;
+  border: 3px solid #064e3b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#station-description {
+  background: #f8f9fa;
+  border: 1px solid #e1e4e8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#station-description h5 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+#station-description p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+
+#station-details {
+  margin-top: 20px;
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#more-info {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3%;
+}
+
+.list-unstyled li {
+  margin: 8px 0;
+  color: #555;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.bg-secondary {
+  background-color: #6c757d;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.info-section i {
+  font-size: 1.9rem;
+}
+
+#station-description, #station-updated {
+  font-weight: bold;
+  color: #343a40;
+}
+
+
+
+
+
+ #more-info {
+    background: #fff;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .info-card {
+    display: flex;
+    align-items: center;
+    background: #f7f9fc;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  .info-card:hover {
+    box-shadow: 0 4px 14px rgb(0 0 0 / 0.2);
+  }
+
+  .info-icon {
+    font-size: 2rem;
+    color: #6c757d; /* gris */
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .info-card div strong {
+    display: block;
+    font-weight: 600;
+    color: #343a40;
+  }
+
+  .info-card div p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #495057;
+    word-break: break-word;
+  }
+
+  .visitor-counter {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  background-color: #064e3b;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 999;
+}
+
+.visitor-counter i {
+  font-size: 1.2rem;
+}
+
+
+
+/*---------------------------------*/
+
+/* --- Contenedor general filtro fechas --- */
+.filtro-fechas.card {
+  margin-top: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border: none;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.filtro-fechas.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Título filtro fechas */
+.filtro-fechas .card-header {
+  background: linear-gradient(90deg, #064e3b, #1b7f56);
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px 12px 0 0;
+  user-select: none;
+}
+
+/* Grid interno del filtro fechas */
+.filtro-fechas .info-grid {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 1.5rem 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Cada tarjeta de filtro (fecha inicio, fin, botón) */
+.filtro-fechas .info-card {
+  background: #f7f9fc;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  flex: 1 1 180px;
+  max-width: 280px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: box-shadow 0.25s ease;
+}
+
+.filtro-fechas .info-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Iconos del filtro fechas */
+.filtro-fechas .info-icon {
+  font-size: 2.2rem;
+  color: #064e3b;
+}
+
+/* Inputs tipo fecha */
+.filtro-fechas input[type="date"] {
+  border: 1.5px solid #064e3b;
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  font-size: 1rem;
+  color: #064e3b;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.filtro-fechas input[type="date"]:focus {
+  outline: none;
+  border-color: #1b7f56;
+  box-shadow: 0 0 6px #1b7f56aa;
+}
+
+/* Botón filtrar */
+.filtro-fechas .btn-filtrar {
+  background: #064e3b;
+  color: white;
+  border: none;
+  padding: 0.55rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px #1b7f56aa;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.filtro-fechas .btn-filtrar:hover {
+  background: #1b7f56;
+  box-shadow: 0 6px 18px #064e3bcc;
+}
+
+/* --- Tabla de resultados datalogger --- */
+.resultado-datalogger.card {
+  margin-top: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  border: none;
+  overflow: hidden;
+  margin-bottom: 3%;
+  transform: scale(1.05);
+  transform: none !important;
+}
+
+.resultado-datalogger .card-header {
+  background: linear-gradient(90deg, #064e3b, #1b7f56);
+  color: white;
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px 12px 0 0;
+  user-select: none;
+  text-align: center;
+}
+
+/* Tabla responsiva */
+.resultado-datalogger .table-responsive {
+  padding: 1rem 1.5rem 2rem;
+  overflow-x: auto;
+  
+}
+
+/* Tabla datalogger */
+.table-datalogger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: #343a40;
+  min-width: 900px;
+}
+
+/* Encabezados */
+.table-datalogger thead tr {
+  background: #064e3b;
+  color: white;
+  text-align: center;
+  user-select: none;
+}
+
+.table-datalogger th, .table-datalogger td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+/* Celdas alineadas centro excepto valores y nombres */
+.table-datalogger td:nth-child(2), /* Nombre Sensor */
+.table-datalogger td:nth-child(7)  /* Nombre Variable */ {
+  text-align: left;
+}
+
+.table-datalogger tbody tr:hover {
+  background: #e4f0e6;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estado resaltado (puedes ajustar colores según estado) */
+.table-datalogger td:nth-child(4) {
+  font-weight: 600;
+  color: #1b7f56;
+}
+
+/* Valor resaltado */
+.table-datalogger td:nth-child(8) {
+  font-weight: 700;
+  color: #064e3b;
+}
+
+/* Fecha con letra cursiva ligera */
+.table-datalogger td:nth-child(9) {
+  font-style: italic;
+  color: #495057;
+}
+
+/* --- Mensaje "Sin datos" --- */
+.info-card.no-datos {
+  margin: 3rem auto;
+  max-width: 500px;
+  background-color: #fff7e6;
+  border-left: 6px solid #f59e0b;
+  color: #7a5a00;
+  box-shadow: 0 3px 12px rgba(245, 158, 11, 0.25);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.info-card.no-datos .info-icon {
+  font-size: 2.5rem;
+  color: #f59e0b;
+}
+
+.info-card.no-datos strong {
+  font-weight: 700;
+}
+
+/* Responsive: adapta tabla y grid */
+@media (max-width: 992px) {
+  .filtro-fechas .info-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filtro-fechas .info-card {
+    max-width: 100%;
+  }
+  .table-datalogger {
+    min-width: 700px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .table-datalogger {
+    font-size: 0.85rem;
+  }
+}

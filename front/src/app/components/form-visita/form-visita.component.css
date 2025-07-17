@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ===== Container ===== */
+.container {
+  width: 100%;
+  max-width: 720px;
+  padding: 20px;
+}
+
+/* ===== Card ===== */
+.card {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 40px;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #064e3b;
+}
+
+.card h2 span {
+  color: #10b981;
+}
+
+.card p {
+  color: #4b5563;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+/* ===== Form Layout ===== */
+form {
+  width: 100%;
+}
+
+.input-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.input-container {
+  flex: 1 1 100%;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+/* ===== Input Styling ===== */
+.input-icon {
+  position: relative;
+}
+
+.input-icon ion-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #6b7280;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #ffffff;
+  color: #1f2937;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+textarea {
+  padding-left: 16px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #10b981;
+}
+
+/* ===== Button ===== */
+.sign-in-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #064e3b;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sign-in-btn:hover:not([disabled]) {
+  background-color: #047857;
+}
+
+.sign-in-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .input-row {
+    flex-direction: column;
+  }
+}

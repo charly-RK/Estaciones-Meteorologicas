@@ -1,0 +1,84 @@
+/* Estilo para el contenedor de historial */
+.historial-container {
+  background-color: #f9fafb;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.historial-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #064e3b;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.no-users {
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+.table {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.table th, .table td {
+  text-align: center;
+  padding: 12px;
+  font-size: 1.1rem;
+}
+
+.table th {
+  background-color: #064e3b;
+  color: white;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f4f7fa;
+}
+
+.table-bordered {
+  border: 1px solid #e0e0e0;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #ddd;
+}
+
+.visita-item {
+  background-color: #f9fafb;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.visita-item p {
+  color: #555;
+  font-size: 1rem;
+}
+
+.visita-item strong {
+  color: #064e3b;
+}
+
+.visita-item p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}

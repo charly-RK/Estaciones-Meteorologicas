@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="card">
+    <h2>Bienvenido a <span>Proyecto Investigación</span></h2>
+    <p>Por favor, completa la siguiente información para continuar:</p>
+
+    <form (ngSubmit)="onSubmit()" #registroForm="ngForm" novalidate>
+      <div class="input-row">
+        <div class="input-container">
+          <label for="nombre">Nombre:</label>
+          <div class="input-icon">
+            <ion-icon name="person-outline"></ion-icon>
+            <input
+              type="text" id="nombre" name="nombre"
+              [(ngModel)]="usuario.nombre" required
+              pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
+              placeholder="Ingrese su nombre" autocomplete="off"
+              #nombre="ngModel"
+            />
+          </div>
+          <div *ngIf="nombre.invalid && nombre.touched" class="error">
+            Nombre solo debe contener letras
+          </div>
+        </div>
+
+        <div class="input-container">
+          <label for="apellido">Apellido:</label>
+          <div class="input-icon">
+            <ion-icon name="person-outline"></ion-icon>
+            <input
+              type="text" id="apellido" name="apellido"
+              [(ngModel)]="usuario.apellido" required
+              pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
+              placeholder="Ingrese su apellido" autocomplete="off"
+              #apellido="ngModel"
+            />
+          </div>
+          <div *ngIf="apellido.invalid && apellido.touched" class="error">
+            Apellido solo debe contener letras
+          </div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="correo">Correo:</label>
+        <div class="input-icon">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input
+            type="email" id="correo" name="correo"
+            [(ngModel)]="usuario.correo" required email
+            placeholder="Ingrese su correo" autocomplete="off"
+            #correo="ngModel"
+          />
+        </div>
+        <div *ngIf="correo.invalid && correo.touched" class="error">
+          Correo válido es requerido
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="cedula">Cédula:</label>
+        <div class="input-icon">
+          <ion-icon name="card-outline"></ion-icon>
+          <input
+            type="text" id="cedula" name="cedula"
+            [(ngModel)]="usuario.cedula" required
+            placeholder="Ingrese su número de cédula" autocomplete="off"
+            (blur)="validarCedula()"
+            #cedula="ngModel"
+          />
+        </div>
+        <div *ngIf="cedulaInvalida && cedula.touched" class="error">
+          Cédula no válida
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="razon">Razón de la visita:</label>
+        <textarea
+          id="razon" name="razon"
+          [(ngModel)]="usuario.razon_visita" required
+          rows="4"
+          placeholder="Cuéntenos brevemente por qué visita esta página"
+          #razon="ngModel"
+        ></textarea>
+        <div *ngIf="razon.invalid && razon.touched" class="error">
+          Razón es requerida
+        </div>
+      </div>
+
+      <button class="sign-in-btn" [disabled]="registroForm.invalid">Aceptar</button>
+    </form>
+
+    <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+  </div>
+</div>

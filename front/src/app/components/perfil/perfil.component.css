@@ -1,0 +1,115 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fafb;
+}
+
+/* Separación del navbar */
+.perfil-container {
+    margin-top: 100px;
+}
+
+/* Título */
+.container h2 {
+    font-weight: bold;
+    color: #064e3b;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Card principal */
+#profile-card {
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+/* Cabecera de la card */
+.card-header {
+    background: #34495e;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1.5rem;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    color: white;
+}
+
+/* Botón Editar */
+.edit-mode-btn {
+    background-color: transparent;
+    border: 1px solid #1a73e8;
+    color: #1a73e8;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.edit-mode-btn:hover {
+    background-color: #f4f7fa;
+    border-color: #1a73e8;
+}
+
+/* Imagen de perfil */
+.profile-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #1a73e8;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Datos del perfil */
+.profile-details h2 {
+    font-size: 25px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.job-title {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Layout de perfil */
+.profile {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-image img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-details {
+        text-align: center;
+    }
+}

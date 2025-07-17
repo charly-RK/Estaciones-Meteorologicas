@@ -1,0 +1,130 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="left-panel">
+      <div class="logo">
+        <h1>Proyecto Investigación</h1>
+      </div>
+      <h2>Registrar Usuario</h2>
+
+      <form (ngSubmit)="register()">
+        <div class="input-row">
+          <!-- Campo para el usuario -->
+          <div class="input-container">
+            <label for="username">Nombre:</label>
+            <div class="username-input">
+              <ion-icon name="person-outline"></ion-icon>
+              <input 
+                type="text" 
+                id="username" 
+                placeholder="Ingrese su Nombre" 
+                [(ngModel)]="nombre" 
+                name="username" 
+                required 
+                autocomplete="off"
+              >
+            </div>
+          </div>
+        
+          <!-- Campo para el apellido -->
+          <div class="input-container">
+            <label for="lastname">Apellido:</label>
+            <div class="lastname-input">
+              <ion-icon name="person-outline"></ion-icon>
+              <input 
+                type="text" 
+                id="lastname" 
+                placeholder="Ingrese su Apellido" 
+                [(ngModel)]="apellido"
+                name="lastname" 
+                required 
+                autocomplete="off"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Campo para el correo -->
+        <div class="input-container">
+          <label for="correo">Correo:</label>
+          <div class="email-input">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input 
+              type="email" 
+              id="correo" 
+              placeholder="Ingrese su correo" 
+              [(ngModel)]="correo" 
+              name="correo" 
+              required 
+              autocomplete="off"
+            >
+          </div>
+        </div>
+
+        <!-- Campo para la contraseña -->
+        <div class="input-container">
+          <label for="password">Contraseña:</label>
+          <div class="password-input">
+            <input 
+              type="password" 
+              id="password" 
+              placeholder="Ingrese contraseña" 
+              [(ngModel)]="contrasena"
+              name="password" 
+              required 
+              autocomplete="off"
+              (input)="validatePassword()"
+            >
+            <!-- Ícono que se alterna al hacer clic -->
+            <ion-icon name="eye-off-outline" class="toggle-password" (click)="togglePasswordVisibility('password')"></ion-icon>
+          </div>
+          <!-- Mensaje de error de validación -->
+          <div *ngIf="passwordError" class="password-error">
+            {{ passwordError }}
+          </div>
+        </div>
+
+        <!-- Campo para confirmar la contraseña -->
+        <div class="input-container">
+          <label for="confirmPassword">Repetir Contraseña:</label>
+          <div class="password-input">
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              placeholder="Repetir contraseña" 
+              [(ngModel)]="confirmarContrasena"
+              name="confirmPassword" 
+              required 
+              autocomplete="off"
+            >
+            <!-- Ícono que se alterna al hacer clic -->
+            <ion-icon name="eye-off-outline" class="toggle-password" (click)="togglePasswordVisibility('confirmPassword')"></ion-icon>
+          </div>
+        </div>
+
+        <!-- Botón de registro -->
+        <div class="d-grid gap-2 mb-3">
+          <button type="submit" class="sign-in-btn">Aceptar</button>
+        </div>
+
+        <!-- Enlace para regresar al login -->
+        <p>Ya tienes cuenta? <a routerLink="/login">Volver</a></p>
+      </form>
+    </div>
+
+    <div class="right-panel">
+      <div class="support">
+      
+      </div>
+      <div class="promo-content">
+        <div class="image-container">
+          <img src="../../../assets/img/fondo_in.png" alt="PROYEC">
+        </div>
+      </div>
+      <div class="footer">
+        <h3>Regístrate para Acceder y Gestionar Datos Meteorológicos</h3>
+        <p>En esta página podrás crear tu cuenta para explorar la información recopilada por las estaciones meteorológicas. ¡Únete ahora!</p>
+
+      </div>
+    </div>
+  </div>
+</div>

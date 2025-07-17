@@ -1,0 +1,385 @@
+<app-menu-lateral></app-menu-lateral>
+<app-admin-navbar></app-admin-navbar>
+<div class="container">
+  <!-- Header -->
+  <div class="header-bar">
+  <div class="search-bar">
+    <label for="busqueda">Buscar estación:</label>
+    <div class="search-container">
+      <i class="fa fa-search"></i>
+      <input
+        id="busqueda"
+        type="text"
+        class="search-input"
+        placeholder="Buscar por nombre o ID..."
+        [(ngModel)]="filtro"
+        (ngModelChange)="filtrarEstaciones()"
+      />
+    </div>
+  </div>
+  <button class="btn btn-success" (click)="abrirModal()">Crear estación</button>
+</div>
+
+
+  <!-- Mensaje de carga -->
+  <div *ngIf="loading">Cargando estaciones...</div>
+
+  <!-- Tabla -->
+  <div class="scroll-wrapper">
+    <table *ngIf="!loading && estacionesFiltradas.length > 0" class="data-table">
+      <thead>
+        <tr>
+          <th>Id Estacion</th>
+          <!-- 
+          <th>Tipo ID</th>
+          <th>Parroquia ID</th>
+          -->
+          <th>Nombre</th>
+          <th>Ubicación</th>
+          <th>Latitud</th>
+          <th>Longitud</th>
+          <th>Altura Terreno</th>
+          <th>Promotor Terreno</th>
+          <th>Propietario Institución</th>
+          <th>Institución a Cargo</th>
+          <th>Tipo</th>
+          <th>Código INAMHI</th>
+          <th>Path</th>
+          <th>Comunidad</th>
+          <th>Nombre Archivo</th>
+          <th>Path Leídos</th>
+          <th>Tipo Estación</th>
+          <th>Provincia</th>
+          <th>Cantón</th>
+          <th>Parroquia</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let est of estacionesFiltradas; let i = index">
+          <ng-container *ngIf="editIndex === i; else displayRow">
+            <td>{{ est.esta_id }}</td>
+              <!-- 
+            <td><input type="number" [(ngModel)]="est.tipoesta_id" class="edit-input" /></td>
+            <td><input type="number" [(ngModel)]="est.parr_id" class="edit-input" /></td>
+            -->
+            <td><input type="text" [(ngModel)]="est.esta_nombre" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_ubicacion" class="edit-input" /></td>
+            <td><input type="number" [(ngModel)]="est.esta_latitud" class="edit-input" /></td>
+            <td><input type="number" [(ngModel)]="est.esta_longitud" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_alturaterreno" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_promotorterreno" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_propietarioinstitucion" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_institucionacargo" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_manualautomatica" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_codigoinamhi" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_path" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_comunidad" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_nombrearchivo" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.esta_path_leidos" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.tiposesta_nombre" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.prov_nombre" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.cant_nombre" class="edit-input" /></td>
+            <td><input type="text" [(ngModel)]="est.parr_nombre" class="edit-input" /></td>
+            <td class="actions-cell">
+              <button class="btn btn-success btn-sm me-1" (click)="actualizarEstacion(est)">Actualizar</button>
+              <button class="btn btn-secondary btn-sm" (click)="cancelarEdicion()">Cancelar</button>
+            </td>
+          </ng-container>
+
+          <ng-template #displayRow>
+            <td>{{ est.esta_id }}</td>
+            <!-- -->
+            <!-- 
+            <td>{{ est.tipoesta_id }}</td>
+            <td>{{ est.parr_id }}</td>
+            -->
+            <td>{{ est.esta_nombre }}</td>
+            <td>{{ est.esta_ubicacion }}</td>
+            <td>{{ est.esta_latitud }}</td>
+            <td>{{ est.esta_longitud }}</td>
+            <td>{{ est.esta_alturaterreno }}</td>
+            <td>{{ est.esta_promotorterreno }}</td>
+            <td>{{ est.esta_propietarioinstitucion }}</td>
+            <td>{{ est.esta_institucionacargo }}</td>
+            <td>{{ est.esta_manualautomatica }}</td>
+            <td>{{ est.esta_codigoinamhi }}</td>
+            <td>{{ est.esta_path }}</td>
+            <td>{{ est.esta_comunidad }}</td>
+            <td>{{ est.esta_nombrearchivo }}</td>
+            <td>{{ est.esta_path_leidos }}</td>
+            <td>{{ est.tiposesta_nombre }}</td>
+            <td>{{ est.prov_nombre }}</td>
+            <td>{{ est.cant_nombre }}</td>
+            <td>{{ est.parr_nombre }}</td>
+            <td class="actions-cell">
+              <button class="btn btn-primary btn-sm me-1" (click)="editarEstacion(i)">Editar</button>
+              <button class="btn btn-danger btn-sm" (click)="eliminarEstacion(est.esta_id)">Eliminar</button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mensaje si no hay resultados -->
+  <div *ngIf="!loading && estacionesFiltradas.length === 0" class="alert alert-info mt-3">
+    No hay estaciones registradas.
+  </div>
+</div>
+
+
+<div class="modal fade show d-block" *ngIf="showModal" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear Nueva Estación</h5>
+        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+
+          <div class="col-md-3">
+            <label>ID Estación</label>
+            <input type="number" class="form-control" [(ngModel)]="nuevaEstacion.esta_id" name="esta_id" />
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="tipo">Tipo Estación</label>
+            <select [(ngModel)]="nuevaEstacion.tipoesta_id" name="tipoesta_id">
+              <option *ngFor="let tipo of tiposEstacion" [value]="tipo.tipoesta_id">
+                {{ tipo.tiposesta_nombre }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_nombre" />
+          </div>
+
+          <div class="col-md-4">
+            <label>Provincia:</label>
+            <select class="form-select" (change)="onProvinciaChange($event)">
+              <option value="">Seleccione una provincia</option>
+              <option *ngFor="let prov of provincias" [value]="prov.prov_id">{{ prov.prov_nombre }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label>Cantón:</label>
+            <select class="form-select" (change)="onCantonChange($event)">
+              <option value="">Seleccione un cantón</option>
+              <option *ngFor="let cant of cantones" [value]="cant.cant_id">{{ cant.cant_nombre }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label>Parroquia:</label>
+            <select class="form-select" [(ngModel)]="nuevaEstacion.parr_id">
+              <option value="">Seleccione una parroquia</option>
+              <option *ngFor="let parr of parroquias" [value]="parr.parr_id">{{ parr.parr_nombre }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label>Ubicación:</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_ubicacion" />
+          </div>
+          <div class="col-md-3">
+            <label>Latitud:</label>
+            <input type="number" class="form-control" [(ngModel)]="nuevaEstacion.esta_latitud" />
+          </div>
+          <div class="col-md-3">
+            <label>Longitud:</label>
+            <input type="number" class="form-control" [(ngModel)]="nuevaEstacion.esta_longitud" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Altura Terreno</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_alturaterreno" name="esta_alturaterreno" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Promotor Terreno</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_promotorterreno" name="esta_promotorterreno" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Propietario Institución</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_propietarioinstitucion" name="esta_propietarioinstitucion" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Institución a Cargo</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_institucionacargo" name="esta_institucionacargo" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Manual / Automática</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_manualautomatica" name="esta_manualautomatica" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Código INAMHI</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_codigoinamhi" name="esta_codigoinamhi" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Path</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_path" name="esta_path" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Comunidad</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_comunidad" name="esta_comunidad" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Nombre Archivo</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_nombrearchivo" name="esta_nombrearchivo" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Path Leídos</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_path_leidos" name="esta_path_leidos" />
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="cerrarModal()">Cancelar</button>
+        <button class="btn btn-primary" (click)="crearEstacion()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade show d-block" *ngIf="showModal" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear Nueva Estación</h5>
+        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+
+          <div class="col-md-3">
+            <label>ID Estación</label>
+            <input type="number" class="form-control" [(ngModel)]="nuevaEstacion.esta_id" name="esta_id" />
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="tipo">Tipo Estación</label>
+            <select class="form-select" [(ngModel)]="nuevaEstacion.tipoesta_id" name="tipoesta_id">
+              <option *ngFor="let tipo of tiposEstacion" [value]="tipo.tipoesta_id">
+                {{ tipo.tiposesta_nombre }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_nombre" />
+          </div>
+
+          <div class="col-md-4">
+            <label>Provincia:</label>
+            <select class="form-select" (change)="onProvinciaChange($event)">
+              <option value="">Seleccione una provincia</option>
+              <option *ngFor="let prov of provincias" [value]="prov.prov_id">{{ prov.prov_nombre }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label>Cantón:</label>
+            <select class="form-select" (change)="onCantonChange($event)">
+              <option value="">Seleccione un cantón</option>
+              <option *ngFor="let cant of cantones" [value]="cant.cant_id">{{ cant.cant_nombre }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label>Parroquia:</label>
+            <select class="form-select" [(ngModel)]="nuevaEstacion.parr_id">
+              <option value="">Seleccione una parroquia</option>
+              <option *ngFor="let parr of parroquias" [value]="parr.parr_id">{{ parr.parr_nombre }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label>Ubicación:</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_ubicacion" />
+          </div>
+          <div class="col-md-3">
+            <label>Latitud:</label>
+            <input type="number" class="form-control" [(ngModel)]="nuevaEstacion.esta_latitud" />
+          </div>
+          <div class="col-md-3">
+            <label>Longitud:</label>
+            <input type="number" class="form-control" [(ngModel)]="nuevaEstacion.esta_longitud" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Altura Terreno</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_alturaterreno" name="esta_alturaterreno" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Promotor Terreno</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_promotorterreno" name="esta_promotorterreno" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Propietario Institución</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_propietarioinstitucion" name="esta_propietarioinstitucion" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Institución a Cargo</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_institucionacargo" name="esta_institucionacargo" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Manual / Automática</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_manualautomatica" name="esta_manualautomatica" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Código INAMHI</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_codigoinamhi" name="esta_codigoinamhi" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Path</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_path" name="esta_path" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Comunidad</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_comunidad" name="esta_comunidad" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Nombre Archivo</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_nombrearchivo" name="esta_nombrearchivo" />
+          </div>
+
+          <div class="col-md-6">
+            <label>Path Leídos</label>
+            <input type="text" class="form-control" [(ngModel)]="nuevaEstacion.esta_path_leidos" name="esta_path_leidos" />
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="cerrarModal()">Cancelar</button>
+        <button class="btn btn-primary" (click)="crearEstacion()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
